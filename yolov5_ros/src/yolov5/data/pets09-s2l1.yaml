@@ -1,0 +1,9 @@
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../datasets/PETS09-S2L1  # dataset root dir
+train: train/images  # train images (relative to 'path')  6471 images
+val: val/images  # val images (relative to 'path')  548 images
+# test: VisDrone2019-DET-test-dev/images  # test images (optional)  1610 images
+
+# Classes
+nc: 10  # number of classes
+names: ['pedestrian', 'people', 'bicycle', 'car', 'van', 'truck', 'tricycle', 'awning-tricycle', 'bus', 'motor']

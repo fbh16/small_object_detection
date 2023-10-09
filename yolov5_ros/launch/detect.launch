@@ -1,0 +1,39 @@
+<launch>
+    <!-- Detection configuration -->
+    <arg name="weights"                     default="/home/fbh/2023_goal/kgd_sub/src/weights/sliced_visdrone/sliced_visdrone_36000pics.engine"/>
+    <arg name="data"                        default="$(find yolov5_ros)/src/yolov5/data/VisDrone.yaml"/>
+    <arg name="confidence_threshold"        default="0.8"/>
+    <arg name="iou_threshold"               default="0.3"/>
+    <arg name="maximum_detections"          default="100"/>
+    <arg name="device"                      default="0"/>
+    <!-- ['pedestrian', 'people', 'bicycle', 'car', 'van', 'truck', 'tricycle', 'awning-tricycle', 'bus', 'motor'] -->
+    <arg name="classes"                     default="0"/>
+    <arg name="hide_label"                  default="false"/> 
+    <!-- Visualize using OpenCV window -->
+    <arg name="view_image"                  default="false"/>
+    <!-- ROS topics -->
+    <arg name="input_image_topic"           default="/usb_cam/image_raw"/> 
+    <arg name="output_topic"                default="/yolo/bbx"/>
+    <arg name="output_img"                  default="/yolo/img"/>
+    <arg name="evaluate"                    default="false"/>
+    <arg name="seq_name"                    default="gym"/>
+    <arg name="mk_new_train"                default="false"/>
+
+    <node pkg="yolov5_ros" name="yolov5" type="yolo_gendet.py" output="screen">
+        <param name="weights"               value="$(arg weights)"/>
+        <param name="data"                  value="$(arg data)"/>
+        <param name="confidence_threshold"  value="$(arg confidence_threshold)"/>
+        <param name="iou_threshold"         value="$(arg iou_threshold)" />
+        <param name="maximum_detections"    value="$(arg maximum_detections)"/>
+        <param name="device"                value="$(arg device)"/>
+        <param name="classes"               value="$(arg classes)"/>
+        <param name="hide_label"            value="$(arg hide_label)"/>
+        <param name="input_image_topic"     value="$(arg input_image_topic)"/>
+        <param name="output_topic"          value="$(arg output_topic)"/>
+        <param name="view_image"            value="$(arg view_image)"/>
+        <param name="evaluate"              value="$(arg evaluate)"/>
+        <param name="seq_name"              value="$(arg seq_name)"/>
+        <param name="mk_new_train"          value="$(arg mk_new_train)"/>
+    </node>
+
+</launch>

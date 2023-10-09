@@ -1,0 +1,26 @@
+<launch>
+    <arg name="display"                default="true"/>
+    <arg name="iou_threshold"          default="0.3"/>
+    
+    <!-- ROS topics of Bboxes -->
+    <arg name="input_box_topic"        default="/yolo/box"/>
+    <arg name="input_img_topic"        default="/yolo/img"/>
+    <!-- <arg name="input_img_topic"        default="/yolo/frame"/> -->
+    <!-- ROS topics of tracking-->
+    <arg name="output_box_topic"       default="/Sort/tracked_boxes"/>
+    <arg name="output_tracking_topic"  default="/Sort/tracking_img"/>
+
+    <node pkg="sort_ros" name="track" type="sortt.py" output="screen">
+    
+        <param name="display"                 value="$(arg display)"/>
+        <param name="iou_threshold"           value="$(arg iou_threshold)"/>
+
+        <param name="input_box_topic"         value="$(arg input_box_topic)"/>
+        <param name="input_img_topic"         value="$(arg input_img_topic)"/>
+
+        <param name="output_box_topic"         value="$(arg output_box_topic)"/>
+        <param name="output_tracking_topic"    value="$(arg output_tracking_topic)"/>
+    
+    </node>
+
+</launch>

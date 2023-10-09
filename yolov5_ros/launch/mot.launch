@@ -1,0 +1,25 @@
+
+<launch>
+    <node pkg="yolov5_ros" name="yolov5" type="yolo_csrt_final.py" output="screen">
+        
+        <param name="weights"               value="/home/fbh/2023_goal/kgd_sub/src/weights/sliced_visdrone/sliced_visdrone_36000pics.engine"/>
+        <param name="data"                  value="$(find yolov5_ros)/src/yolov5/data/VisDrone.yaml"/>
+        <param name="confidence_threshold"  value="0.5"/>
+        <param name="iou_threshold"         value="0.3"/>
+        <param name="maximum_detections"    value="100"/>
+        <param name="device"                value="0"/>
+        <param name="classes"               value="0"/>
+
+        <param name="input_image_topic"     value="/usb_cam/image_raw"/>
+        <param name="output_topic"          value="/mot/results"/>
+
+        <param name="view_image"            value="true"/>
+        <param name="hide_label"            value="false"/>
+
+        <param name="evaluate"              value="false"/>
+        <param name="seq_name"              value="car2"/>
+        <param name="mk_new_train"          value="true"/>
+
+    </node>
+
+</launch>

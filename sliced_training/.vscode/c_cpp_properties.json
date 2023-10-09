@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/fbh/A/Sort/devel/include/**",
+        "/home/fbh/A/Yolo/devel/include/**",
+        "/home/fbh/Cv_Bridge/install/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/fbh/A/Yolo/src/usb_cam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

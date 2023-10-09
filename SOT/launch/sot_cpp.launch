@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+    <node pkg="sot"       name="Multi_SOT"        type="track"        output="screen">
+
+        <param name="view_image"                        value="true"/>
+        <!-- parameters for evaluate -->
+        <param name="evaluate"                          value="false"/>
+        <param name="bag_name"                          value="gym"/>
+        <param name="create_new_train"                  value="false"/>
+        <param name="max_age"                           value="5"/>
+        <param name="min_hits"                          value="2"/>
+        
+    </node>
+</launch>
